@@ -6,25 +6,15 @@
     <title>Post-Test Matematika</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" 
-        onload="renderMathInElement(document.body, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false}
-            ],
-            throwOnError: false
-        });">
-    </script>
-
     <style>
-        .katex { font-size: 1.1em; }
-        .pilihan-container input[type="radio"]:checked + span {
-            font-weight: bold;
+        .katex { font-size: 1.15em; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
+        .animate-pop { animation: fadeIn 0.3s ease-out forwards; }
     </style>
 </head>
 <body class="bg-slate-100 font-sans text-slate-800">
@@ -32,50 +22,43 @@
     <header class="bg-[#1e293b] text-white p-4 sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto flex justify-between items-center px-4">
             <h1 class="font-bold text-lg uppercase tracking-widest">SISA WAKTU:</h1>
-            <div id="timer" class="bg-cyan-600 px-6 py-1 rounded-md text-xl font-mono font-bold shadow-inner">10:00</div>
+            <div id="timerDisplay" class="bg-cyan-600 px-6 py-1 rounded-md text-xl font-mono font-bold shadow-inner">10:00</div>
         </div>
     </header>
 
     <main class="container mx-auto mt-10 p-4 max-w-4xl pb-20">
         <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-slate-200">
-            
-            <div class="bg-yellow-50 p-4 border-b border-yellow-100">
-                <p class="text-sm">
-                    <strong>Peserta:</strong> NOVIANA ADELITA RAHMAWAN | <strong>Kategori:</strong> Matematika Wajib (5 Soal)
-                </p>
+            <div class="bg-yellow-50 p-4 border-b border-yellow-100 text-sm">
+                <strong>Peserta:</strong> NOVIANA ADELITA RAHMAWAN | <strong>Kategori:</strong> Matematika Wajib (5 Soal)
             </div>
 
             <div class="p-8">
                 <div class="flex gap-6">
                     <span class="font-bold text-cyan-600 text-xl">1.</span>
                     <div class="w-full">
-                        <div class="text-lg leading-relaxed mb-8">
-                            Sebuah obat antibiotik meluruh di dalam tubuh pasien mengikuti fungsi $P(t) = 64 \cdot (4)^{-\frac{t}{2}}$, dengan $P(t)$ adalah sisa dosis (mikrogram) dan $t$ adalah waktu yang telah berlalu (jam). Jika pada pukul 07.00 pasien meminum obat dengan dosis awal 64 mikrogram, berapakah sisa dosis di dalam darah pasien pada pukul 10.00 di hari yang sama?
+                        <div id="soalKonten" class="text-lg leading-relaxed mb-8">
+                            Sebuah obat antibiotik meluruh di dalam tubuh pasien mengikuti fungsi $P(t) = 64 \cdot (4)^{-\frac{t}{2}}$, dengan $P(t)$ adalah sisa dosis (mikrogram) dan $t$ adalah waktu (jam). Jika pukul 07.00 dosis awal 64 mikrogram, berapa sisa dosis pada pukul 10.00?
                         </div>
                         
-                        <div class="grid gap-4 pilihan-container">
-                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:border-cyan-200 hover:bg-cyan-50 cursor-pointer transition-all">
-                                <input type="radio" name="soal1" value="A" class="w-5 h-5 text-cyan-600">
+                        <div class="grid gap-4">
+                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
+                                <input type="radio" name="soal1" value="A" class="w-5 h-5">
                                 <span class="ml-4">A. 4 mikrogram</span>
                             </label>
-                            
-                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:border-green-200 hover:bg-green-50 cursor-pointer transition-all">
-                                <input type="radio" name="soal1" value="B" class="w-5 h-5 text-green-600">
+                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
+                                <input type="radio" name="soal1" value="B" class="w-5 h-5">
                                 <span class="ml-4">B. 8 mikrogram</span>
                             </label>
-                            
-                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:border-cyan-200 hover:bg-cyan-50 cursor-pointer transition-all">
-                                <input type="radio" name="soal1" value="C" class="w-5 h-5 text-cyan-600">
+                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
+                                <input type="radio" name="soal1" value="C" class="w-5 h-5">
                                 <span class="ml-4">C. 16 mikrogram</span>
                             </label>
-
-                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:border-cyan-200 hover:bg-cyan-50 cursor-pointer transition-all">
-                                <input type="radio" name="soal1" value="D" class="w-5 h-5 text-cyan-600">
+                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
+                                <input type="radio" name="soal1" value="D" class="w-5 h-5">
                                 <span class="ml-4">D. 32 mikrogram</span>
                             </label>
-
-                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:border-cyan-200 hover:bg-cyan-50 cursor-pointer transition-all">
-                                <input type="radio" name="soal1" value="E" class="w-5 h-5 text-cyan-600">
+                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
+                                <input type="radio" name="soal1" value="E" class="w-5 h-5">
                                 <span class="ml-4">E. 48 mikrogram</span>
                             </label>
                         </div>
@@ -84,68 +67,72 @@
             </div>
 
             <div class="p-8 border-t border-slate-100 text-center bg-slate-50">
-                <button onclick="hitungSkor()" class="bg-[#555555] hover:bg-slate-800 text-white font-bold py-3 px-12 rounded-full transition-all shadow-lg uppercase tracking-widest text-sm">
+                <button onclick="hitungSkor()" class="bg-[#2d3748] hover:bg-slate-800 text-white font-bold py-3 px-12 rounded-full transition-all shadow-lg uppercase tracking-widest text-sm">
                     Selesai & Lihat Skor
                 </button>
             </div>
         </div>
     </main>
 
-    <div id="hasil-skor" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-        <div class="bg-[#f0f9f0] border-2 border-[#82b446] rounded-2xl p-10 max-w-lg w-full text-center shadow-2xl scale-up">
-            <h2 id="teks-skor" class="text-7xl font-black text-[#2e7d32] mb-2">SKOR: 0</h2>
-            <p id="detail-benar" class="text-xl text-slate-600 mb-8 font-medium">Benar 0 dari 1 Soal</p>
-            <button onclick="lokasiBeranda()" class="bg-[#555555] hover:bg-[#333333] text-white font-bold py-4 px-10 rounded-xl text-lg uppercase tracking-wider transition-all">
+    <div id="modalSkor" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+        <div class="bg-[#f0f9f0] border-2 border-[#82b446] rounded-2xl p-10 max-w-lg w-full text-center shadow-2xl animate-pop">
+            <h2 id="teksSkor" class="text-7xl font-black text-[#2e7d32] mb-2">SKOR: 0</h2>
+            <p id="detailBenar" class="text-xl text-slate-600 mb-8 font-medium">Benar 0 dari 1 Soal</p>
+            <button onclick="location.reload()" class="bg-[#555555] hover:bg-[#333333] text-white font-bold py-4 px-10 rounded-xl text-lg uppercase tracking-wider transition-all">
                 KEMBALI KE BERANDA
             </button>
         </div>
     </div>
 
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" 
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$', right: '$', display: false}]});">
+    </script>
+
     <script>
-        // Logika Timer
-        let totalSeconds = 600; 
-        const timerDisplay = document.getElementById('timer');
+        // Inisialisasi variabel
+        let sisaDetik = 600; // 10 menit
+        const display = document.querySelector('#timerDisplay');
+        
+        // Fungsi Timer
+        const jalankanTimer = setInterval(() => {
+            let menit = Math.floor(sisaDetik / 60);
+            let detik = sisaDetik % 60;
 
-        const countdown = setInterval(() => {
-            const minutes = Math.floor(totalSeconds / 60);
-            const seconds = totalSeconds % 60;
-            timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            menit = menit < 10 ? '0' + menit : menit;
+            detik = detik < 10 ? '0' + detik : detik;
 
-            if (totalSeconds <= 0) {
-                clearInterval(countdown);
-                hitungSkor(); // Otomatis hitung skor jika waktu habis
+            display.textContent = `${menit}:${detik}`;
+
+            if (sisaDetik <= 0) {
+                clearInterval(jalankanTimer);
+                hitungSkor();
             } else {
-                totalSeconds--;
+                sisaDetik--;
             }
         }, 1000);
 
-        // Logika Perhitungan Skor
+        // Fungsi Hitung Skor
         function hitungSkor() {
-            let benar = 0;
-            const totalSoal = 1; // Jika soal nambah, ubah angka ini
-
-            // Ambil pilihan soal 1
+            clearInterval(jalankanTimer); // Hentikan timer saat selesai
+            
+            let jumlahBenar = 0;
             const pilihan = document.getElementsByName('soal1');
             
-            // Cek apakah jawaban benar (B / indeks ke-1)
+            // Cek jika jawaban B (indeks 1) dipilih
             if (pilihan[1].checked) {
-                benar++;
+                jumlahBenar = 1;
             }
 
-            const skor Akhir = (benar / totalSoal) * 100;
+            const hasilNilai = (jumlahBenar / 1) * 100;
 
-            // Tampilkan ke Modal
-            document.getElementById('teks-skor').innerText = `SKOR: ${skorAkhir}`;
-            document.getElementById('detail-benar').innerText = `Benar ${benar} dari ${totalSoal} Soal`;
-            document.getElementById('hasil-skor').classList.remove('hidden');
+            // Update isi Modal
+            document.getElementById('teksSkor').textContent = `SKOR: ${hasilNilai}`;
+            document.getElementById('detailBenar').textContent = `Benar ${jumlahBenar} dari 1 Soal`;
             
-            clearInterval(countdown); // Stop timer
-        }
-
-        function lokasiBeranda() {
-            window.location.reload(); // Sederhananya kita reload halaman
+            // Munculkan Modal
+            document.getElementById('modalSkor').classList.remove('hidden');
         }
     </script>
-
 </body>
 </html>
