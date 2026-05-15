@@ -3,134 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post-Test Matematika</title>
-    
+    <title>Post-Test PATOM 2</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    
     <style>
         .katex { font-size: 1.15em; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        .animate-pop { animation: fadeIn 0.3s ease-out forwards; }
+        .hidden { display: none; }
     </style>
 </head>
-<body class="bg-slate-100 font-sans text-slate-800">
+<body class="bg-slate-50 font-sans text-slate-800">
 
-    <header class="bg-[#1e293b] text-white p-4 sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <h1 class="font-bold text-lg uppercase tracking-widest">SISA WAKTU:</h1>
-            <div id="timerDisplay" class="bg-cyan-600 px-6 py-1 rounded-md text-xl font-mono font-bold shadow-inner">10:00</div>
+    <div id="halamanBiodata" class="container mx-auto max-w-2xl pt-10 px-4">
+        <div class="text-center mb-8">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Ruangguru_logo.svg/1200px-Ruangguru_logo.svg.png" alt="Logo" class="h-12 mx-auto mb-4 opacity-70">
+            <h1 class="text-3xl font-light text-cyan-700">Post-Test PATOM 2 (HOTS)</h1>
         </div>
-    </header>
 
-    <main class="container mx-auto mt-10 p-4 max-w-4xl pb-20">
-        <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-slate-200">
-            <div class="bg-yellow-50 p-4 border-b border-yellow-100 text-sm">
-                <strong>Peserta:</strong> NOVIANA ADELITA RAHMAWAN | <strong>Kategori:</strong> Matematika Wajib (5 Soal)
-            </div>
+        <div class="bg-cyan-50 border border-cyan-200 rounded-lg p-6 mb-6">
+            <h2 class="text-cyan-700 font-bold uppercase text-sm mb-3 border-b border-cyan-200 pb-2">Peraturan Ujian</h2>
+            <ul class="text-sm text-slate-600 space-y-1">
+                <li>Terdapat <strong>5 Soal Evaluasi</strong> (Matematika Wajib).</li>
+                <li>Soal terdiri dari Pilihan Ganda Tunggal.</li>
+                <li>Waktu pengerjaan: <strong>15 menit</strong>.</li>
+            </ul>
+        </div>
 
-            <div class="p-8">
-                <div class="flex gap-6">
-                    <span class="font-bold text-cyan-600 text-xl">1.</span>
-                    <div class="w-full">
-                        <div id="soalKonten" class="text-lg leading-relaxed mb-8">
-                            Sebuah obat antibiotik meluruh di dalam tubuh pasien mengikuti fungsi $P(t) = 64 \cdot (4)^{-\frac{t}{2}}$, dengan $P(t)$ adalah sisa dosis (mikrogram) dan $t$ adalah waktu (jam). Jika pukul 07.00 dosis awal 64 mikrogram, berapa sisa dosis pada pukul 10.00?
-                        </div>
-                        
-                        <div class="grid gap-4">
-                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
-                                <input type="radio" name="soal1" value="A" class="w-5 h-5">
-                                <span class="ml-4">A. 4 mikrogram</span>
-                            </label>
-                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
-                                <input type="radio" name="soal1" value="B" class="w-5 h-5">
-                                <span class="ml-4">B. 8 mikrogram</span>
-                            </label>
-                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
-                                <input type="radio" name="soal1" value="C" class="w-5 h-5">
-                                <span class="ml-4">C. 16 mikrogram</span>
-                            </label>
-                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
-                                <input type="radio" name="soal1" value="D" class="w-5 h-5">
-                                <span class="ml-4">D. 32 mikrogram</span>
-                            </label>
-                            <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-all">
-                                <input type="radio" name="soal1" value="E" class="w-5 h-5">
-                                <span class="ml-4">E. 48 mikrogram</span>
-                            </label>
-                        </div>
-                    </div>
+        <div class="bg-white border border-slate-200 rounded-lg p-8 shadow-sm mb-6">
+            <h2 class="text-slate-400 uppercase text-xs font-bold mb-6 tracking-widest">Biodata Peserta</h2>
+            <div class="space-y-4">
+                <div class="flex items-center">
+                    <label class="w-32 text-cyan-800 font-bold">Nama :</label>
+                    <input type="text" id="inputNama" placeholder="Masukkan nama lengkap..." class="flex-1 border border-slate-300 rounded p-2 focus:outline-none focus:ring-1 focus:ring-cyan-500">
+                </div>
+                <div class="flex items-center">
+                    <label class="w-32 text-cyan-800 font-bold">Regional :</label>
+                    <select id="inputRegional" class="flex-1 border border-slate-300 rounded p-2 focus:outline-none focus:ring-1 focus:ring-cyan-500">
+                        <option value="">Pilih Regional...</option>
+                        <option value="Cibinong">Cibinong</option>
+                        <option value="Jakarta">Jakarta</option>
+                        <option value="Bogor">Bogor</option>
+                    </select>
                 </div>
             </div>
-
-            <div class="p-8 border-t border-slate-100 text-center bg-slate-50">
-                <button onclick="hitungSkor()" class="bg-[#2d3748] hover:bg-slate-800 text-white font-bold py-3 px-12 rounded-full transition-all shadow-lg uppercase tracking-widest text-sm">
-                    Selesai & Lihat Skor
-                </button>
-            </div>
         </div>
-    </main>
 
-    <div id="modalSkor" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-        <div class="bg-[#f0f9f0] border-2 border-[#82b446] rounded-2xl p-10 max-w-lg w-full text-center shadow-2xl animate-pop">
-            <h2 id="teksSkor" class="text-7xl font-black text-[#2e7d32] mb-2">SKOR: 0</h2>
-            <p id="detailBenar" class="text-xl text-slate-600 mb-8 font-medium">Benar 0 dari 1 Soal</p>
-            <button onclick="location.reload()" class="bg-[#555555] hover:bg-[#333333] text-white font-bold py-4 px-10 rounded-xl text-lg uppercase tracking-wider transition-all">
-                KEMBALI KE BERANDA
+        <div class="text-center">
+            <p id="pesanPeringatan" class="text-red-500 bg-red-50 border border-red-200 py-2 px-4 rounded-md mb-4 hidden">Mohon lengkapi biodata sebelum memulai ujian!</p>
+            <button onclick="mulaiUjian()" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-16 rounded-full text-lg shadow-md transition-all uppercase">
+                Matematika Wajib
             </button>
         </div>
     </div>
 
+    <div id="halamanSoal" class="hidden">
+        <header class="bg-[#1e293b] text-white p-4 sticky top-0 z-50 shadow-lg">
+            <div class="container mx-auto flex justify-between items-center px-4">
+                <h1 class="font-bold text-lg uppercase tracking-widest">SISA WAKTU:</h1>
+                <div id="timerDisplay" class="bg-cyan-600 px-6 py-1 rounded-md text-xl font-mono font-bold shadow-inner">15:00</div>
+            </div>
+        </header>
+
+        <main class="container mx-auto mt-10 p-4 max-w-4xl pb-20">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-slate-200">
+                <div class="bg-yellow-50 p-4 border-b border-yellow-100 text-sm">
+                    <p>Peserta: <strong id="displayNama">...</strong> | Regional: <strong id="displayRegional">...</strong></p>
+                </div>
+
+                <div class="p-8">
+                    <div class="flex gap-6">
+                        <span class="font-bold text-cyan-600 text-xl">1.</span>
+                        <div class="w-full">
+                            <div class="text-lg leading-relaxed mb-8">
+                                Sebuah obat antibiotik meluruh di dalam tubuh pasien mengikuti fungsi $P(t) = 64 \cdot (4)^{-\frac{t}{2}}$, dengan $P(t)$ adalah sisa dosis (mikrogram). Jika pukul 07.00 dosis awal 64 mikrogram, berapa sisa dosis pada pukul 10.00?
+                            </div>
+                            <div class="grid gap-4">
+                                <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-all"><input type="radio" name="soal1" class="w-5 h-5"><span class="ml-4">4 mikrogram</span></label>
+                                <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-all"><input type="radio" name="soal1" class="w-5 h-5"><span class="ml-4">8 mikrogram</span></label>
+                                <label class="flex items-center p-4 border-2 border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-all"><input type="radio" name="soal1" class="w-5 h-5"><span class="ml-4">16 mikrogram</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 border-t border-slate-100 text-center bg-slate-50">
+                    <button onclick="hitungSkor()" class="bg-[#2d3748] hover:bg-slate-800 text-white font-bold py-3 px-12 rounded-full shadow-lg uppercase text-sm">Selesai & Lihat Skor</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="modalSkor" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+        <div class="bg-[#f0f9f0] border-2 border-[#82b446] rounded-2xl p-10 max-w-lg w-full text-center shadow-2xl">
+            <h2 id="teksSkor" class="text-7xl font-black text-[#2e7d32] mb-2">SKOR: 0</h2>
+            <p id="detailBenar" class="text-xl text-slate-600 mb-8 font-medium">Benar 0 dari 1 Soal</p>
+            <button onclick="location.reload()" class="bg-[#555555] hover:bg-[#333333] text-white font-bold py-4 px-10 rounded-xl text-lg uppercase tracking-wider transition-all">Kembali ke Beranda</button>
+        </div>
+    </div>
+
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" 
-        onload="renderMathInElement(document.body, {delimiters: [{left: '$', right: '$', display: false}]});">
-    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$', right: '$', display: false}]});"></script>
 
     <script>
-        // Inisialisasi variabel
-        let sisaDetik = 600; // 10 menit
-        const display = document.querySelector('#timerDisplay');
-        
-        // Fungsi Timer
-        const jalankanTimer = setInterval(() => {
-            let menit = Math.floor(sisaDetik / 60);
-            let detik = sisaDetik % 60;
+        let sisaDetik = 900; // 15 Menit
+        let timerAktif = false;
 
-            menit = menit < 10 ? '0' + menit : menit;
-            detik = detik < 10 ? '0' + detik : detik;
+        function mulaiUjian() {
+            const nama = document.getElementById('inputNama').value;
+            const regional = document.getElementById('inputRegional').value;
 
-            display.textContent = `${menit}:${detik}`;
-
-            if (sisaDetik <= 0) {
-                clearInterval(jalankanTimer);
-                hitungSkor();
-            } else {
-                sisaDetik--;
+            if (nama === "" || regional === "") {
+                document.getElementById('pesanPeringatan').classList.remove('hidden');
+                return;
             }
-        }, 1000);
 
-        // Fungsi Hitung Skor
+            // Pindahkan Data ke Halaman Soal
+            document.getElementById('displayNama').textContent = nama;
+            document.getElementById('displayRegional').textContent = regional;
+
+            // Ganti Halaman
+            document.getElementById('halamanBiodata').classList.add('hidden');
+            document.getElementById('halamanSoal').classList.remove('hidden');
+
+            // Jalankan Timer
+            timerAktif = true;
+            mulaiTimer();
+        }
+
+        function mulaiTimer() {
+            const display = document.querySelector('#timerDisplay');
+            const interval = setInterval(() => {
+                if (!timerAktif) { clearInterval(interval); return; }
+                
+                let menit = Math.floor(sisaDetik / 60);
+                let detik = sisaDetik % 60;
+                display.textContent = `${String(menit).padStart(2, '0')}:${String(detik).padStart(2, '0')}`;
+
+                if (sisaDetik <= 0) {
+                    clearInterval(interval);
+                    hitungSkor();
+                } else {
+                    sisaDetik--;
+                }
+            }, 1000);
+        }
+
         function hitungSkor() {
-            clearInterval(jalankanTimer); // Hentikan timer saat selesai
-            
-            let jumlahBenar = 0;
+            timerAktif = false;
+            let benar = 0;
             const pilihan = document.getElementsByName('soal1');
-            
-            // Cek jika jawaban B (indeks 1) dipilih
-            if (pilihan[1].checked) {
-                jumlahBenar = 1;
-            }
+            if (pilihan[1].checked) benar = 1;
 
-            const hasilNilai = (jumlahBenar / 1) * 100;
-
-            // Update isi Modal
-            document.getElementById('teksSkor').textContent = `SKOR: ${hasilNilai}`;
-            document.getElementById('detailBenar').textContent = `Benar ${jumlahBenar} dari 1 Soal`;
-            
-            // Munculkan Modal
+            document.getElementById('teksSkor').textContent = `SKOR: ${benar * 100}`;
+            document.getElementById('detailBenar').textContent = `Benar ${benar} dari 1 Soal`;
             document.getElementById('modalSkor').classList.remove('hidden');
         }
     </script>
